@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class BallParkOrders {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String menuSelected = scanner.nextLine();
+        String[] item = menuSelected.split(" ");
+        float sum = 0;
+        float tax = 1.07f;
+        float total;
+        for (String s : item) {
+            sum = switch (s) {
+                case "Nachos" -> sum + 6;
+                case "Pizza" -> sum + 6;
+                case "Cheeseburger" -> sum + 6;
+                case "Water" -> sum + 4;
+                case "Coke" -> sum + 5;
+                default -> sum + 5;
+            };
+        }
+        total = sum * tax;
+        System.out.printf("%.2f", total);
+    }
+}
